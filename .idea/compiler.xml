@@ -6,15 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="catalog-service" />
-        <module name="account-service" />
-        <module name="payment-service" />
-        <module name="credit-card-service" />
-        <module name="order-service" />
-        <module name="paypal-service" />
-        <module name="stock-service" />
-        <module name="shipping-service" />
         <module name="bank-service" />
+        <module name="payment-service" />
+        <module name="order-service" />
+        <module name="shipping-service" />
+        <module name="creditcard-service" />
+        <module name="paypal-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +19,7 @@
       <module name="bank-service" target="1.8" />
       <module name="catalog-service" target="1.8" />
       <module name="credit-card-service" target="1.8" />
+      <module name="creditcard-service" target="1.8" />
       <module name="order-service" target="1.8" />
       <module name="payment-service" target="1.8" />
       <module name="paypal-service" target="1.8" />
@@ -35,6 +33,7 @@
       <module name="bank-service" options="-parameters" />
       <module name="catalog-service" options="-parameters" />
       <module name="credit-card-service" options="-parameters" />
+      <module name="creditcard-service" options="-parameters" />
       <module name="order-service" options="-parameters" />
       <module name="payment-service" options="-parameters" />
       <module name="paypal-service" options="-parameters" />
