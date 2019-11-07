@@ -1,14 +1,15 @@
 package edu.mum.cs.ea.orderservice.model;
 
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+
+@Component
 public class Product {
 
-    @Id
-    private Long productId;
     private String productName;
     private String productVendor;
     private String productCategory;
@@ -17,21 +18,14 @@ public class Product {
     public Product() {
     }
 
-    public Product(Long productId, String productName, String productVendor, String productCategory, Double productAmount) {
-        this.productId = productId;
+    public Product(String productName, String productVendor, String productCategory, Double productAmount) {
+
         this.productName = productName;
         this.productVendor = productVendor;
         this.productCategory = productCategory;
         this.productAmount = productAmount;
     }
 
-    public Long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
 
     public String getProductName() {
         return productName;
@@ -68,7 +62,6 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productId=" + productId +
                 ", productName='" + productName + '\'' +
                 ", productVendor='" + productVendor + '\'' +
                 ", productCategory='" + productCategory + '\'' +
