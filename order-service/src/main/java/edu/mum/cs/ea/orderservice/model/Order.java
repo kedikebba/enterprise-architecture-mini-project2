@@ -3,10 +3,7 @@ package edu.mum.cs.ea.orderservice.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +13,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
+
+    @OneToMany
     private List<Product> orderProducts;
+
     private Double orderAmount;
 
     public Order() {

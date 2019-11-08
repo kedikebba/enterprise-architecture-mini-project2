@@ -11,14 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/checkout")
 public class CheckOutController {
 
-    @Autowired
-    private Payment payment;
-
-
     @GetMapping("/")
-    public Payment getPaymentOption(){
+    public String getPaymentOption(){
 
-        return payment;
+        return "Payment is Working";
     }
 
 }

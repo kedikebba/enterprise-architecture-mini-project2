@@ -1,14 +1,11 @@
-package edu.mum.cs.ea.orderservice.model;
-
-
-import org.springframework.stereotype.Component;
+package edu.mum.cs.paymentservice.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Component
+@Entity
 public class Payment {
 
     @Id

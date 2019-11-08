@@ -1,0 +1,8 @@
+bank-service = 8094
+catalogue = 8095
+credit card = 8093
+order = 8090
+payment = 8091
+paypal = 8092
+shipping = 8096
+

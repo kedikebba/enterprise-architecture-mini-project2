@@ -9,7 +9,10 @@
         <module name="bank-service" />
         <module name="payment-service" />
         <module name="order-service" />
+        <module name="demo (2) (edu.mum.cs)" />
+        <module name="demo (1) (edu.mum.cs.ea)" />
         <module name="shipping-service" />
+        <module name="demo-1" />
         <module name="creditcard-service" />
         <module name="paypal-service" />
       </profile>
@@ -20,6 +23,9 @@
       <module name="catalog-service" target="1.8" />
       <module name="credit-card-service" target="1.8" />
       <module name="creditcard-service" target="1.8" />
+      <module name="demo (1) (edu.mum.cs.ea)" target="1.8" />
+      <module name="demo (2) (edu.mum.cs)" target="1.8" />
+      <module name="demo-1" target="1.8" />
       <module name="order-service" target="1.8" />
       <module name="payment-service" target="1.8" />
       <module name="paypal-service" target="1.8" />
@@ -34,6 +40,9 @@
       <module name="catalog-service" options="-parameters" />
       <module name="credit-card-service" options="-parameters" />
       <module name="creditcard-service" options="-parameters" />
+      <module name="demo (1) (edu.mum.cs.ea)" options="-parameters" />
+      <module name="demo (2) (edu.mum.cs)" options="-parameters" />
+      <module name="demo-1" options="-parameters" />
       <module name="order-service" options="-parameters" />
       <module name="payment-service" options="-parameters" />
       <module name="paypal-service" options="-parameters" />
