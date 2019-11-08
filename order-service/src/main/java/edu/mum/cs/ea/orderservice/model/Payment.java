@@ -19,6 +19,7 @@ public class Payment {
     public Payment() {
     }
 
+
     public Payment(String paymentType) {
         this.paymentType = paymentType;
     }

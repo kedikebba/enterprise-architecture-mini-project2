@@ -10,13 +10,12 @@ import java.util.List;
 @Entity
 @Component
 public class Order {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long orderId;
 
+    @Id
+    @Column(name = "OrderId", nullable = false)
+    private Long orderId;
     @OneToMany
     private List<Product> orderProducts;
-
     private Double orderAmount;
 
     public Order() {

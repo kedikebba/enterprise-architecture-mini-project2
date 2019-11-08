@@ -34,29 +34,12 @@ public class GetPayments {
         return restTemplateBuilder.build();
     }
 
-//    @Bean
-//    CommandLineRunner paypalRunner(RestTemplate restTemplate) throws Exception{
-//        return args -> {
-//            paypalResponse = restTemplate.getForObject("http://localhost:8092/paypal", String.class);
-//        };
-//    }
-//    @Bean
-//    CommandLineRunner creditRunner(RestTemplate restTemplate) throws Exception{
-//        return args -> {
-//            creditResponse = restTemplate.getForObject("http://localhost:8093/creditcard", String.class);
-//        };
-//    }
-//    @Bean
-//    CommandLineRunner bankRunner(RestTemplate restTemplate) throws Exception{
-//        return args -> {
-//            bankResponse = restTemplate.getForObject("http://localhost:8094/bank", String.class);
-//        };
-//    }
-
     @GetMapping("/all")
     public List<Payment> getPaymentOptions(){
+
         return paymentService.getPaymentOptions();
     }
+
     @GetMapping("/creditcard")
     public String getCreditCard(){
         return restTemplate.getForObject("http://localhost:8093/creditcard", String.class);
