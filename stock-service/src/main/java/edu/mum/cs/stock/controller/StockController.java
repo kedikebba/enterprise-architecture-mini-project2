@@ -1,8 +1,8 @@
 package edu.mum.cs.stock.controller;
 
 
-import edu.mum.cs.stock.model.Stock;
-import edu.mum.cs.stock.service.StockService;
+import edu.mum.cs.stock.model.Product;
+import edu.mum.cs.stock.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,21 +19,27 @@ import java.util.List;
 public class StockController {
 
     @Autowired
-    private StockService productService;
+    private ProductService productService;
 
     @GetMapping("/{productId}")
-    public Stock getProduct(@PathVariable("productId") Long productId){
+    public Product getProduct(@PathVariable("productId") Long productId){
         return productService.getProduct(productId);
     }
 
-    @GetMapping("/all")
-    public List<Stock> getProducts(){
+    @GetMapping("/check/{productId}")
+    public Integer checkQuantity(@PathVariable("productId") Long productId){
+        return productService.getProduct(productId).getProducQuantity();
+    }
 
+
+
+    @GetMapping("/all")
+    public List<Product> getProducts(){
         return productService.getProducts();
     }
     
     @PostMapping("/addproduct")
-    public Stock addProduct(@RequestBody Stock p) {
+    public Product addProduct(@RequestBody Product p) {
     	return productService.save(p);
     }
 }

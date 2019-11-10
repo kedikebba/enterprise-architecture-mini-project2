@@ -33,13 +33,13 @@ public class ProductServiceImp implements ProductService, CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
+//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
+//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
+//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
+//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
+//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
+//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
+//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
 
     }
 }

@@ -1,7 +1,5 @@
-package edu.mum.cs.ea.orderservice.model;
+package edu.mum.cs.stock.model;
 
-
-import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,22 +10,22 @@ import javax.persistence.Id;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long productId;
-
     private String productName;
     private String productVendor;
     private String productCategory;
+    private Integer producQuantity;
     private Double productAmount;
 
     public Product() {
     }
 
-    public Product(Long productId, String productName, String productVendor, String productCategory, Double productAmount) {
-        this.productId = productId;
+    public Product(String productName, String productVendor, String productCategory, Integer producQuantity, Double productAmount) {
         this.productName = productName;
         this.productVendor = productVendor;
         this.productCategory = productCategory;
+        this.producQuantity = producQuantity;
         this.productAmount = productAmount;
     }
 
@@ -63,6 +61,14 @@ public class Product {
         this.productCategory = productCategory;
     }
 
+    public Integer getProducQuantity() {
+        return producQuantity;
+    }
+
+    public void setProducQuantity(Integer producQuantity) {
+        this.producQuantity = producQuantity;
+    }
+
     public Double getProductAmount() {
         return productAmount;
     }
@@ -78,6 +84,7 @@ public class Product {
                 ", productName='" + productName + '\'' +
                 ", productVendor='" + productVendor + '\'' +
                 ", productCategory='" + productCategory + '\'' +
+                ", producQuantity=" + producQuantity +
                 ", productAmount=" + productAmount +
                 '}';
     }

@@ -1,10 +1,12 @@
 package edu.mum.cs.ea.orderservice.controllers;
 
-import edu.mum.cs.ea.orderservice.model.Order;
+import edu.mum.cs.ea.orderservice.model.Orders;
 import edu.mum.cs.ea.orderservice.model.Product;
+import edu.mum.cs.ea.orderservice.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -14,43 +16,40 @@ import java.util.List;
 @RequestMapping("/order")
 public class OrderController {
 
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
+        return restTemplateBuilder.build();
+    }
+
+
     @Autowired
     private RestTemplate restTemplate;
-
     @Autowired
-    private Product product;
-
-    @Autowired
-    private Order order;
+    OrderService orderService;
 
     @GetMapping("/test")
     public String getTestPage(){
         return "This is Test!";
     }
 
-    @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
-        return restTemplateBuilder.build();
-    }
+    @PostMapping("/add")
+    public Orders addToOrder(@RequestBody Product product){
+        //Go to stock service and pick productQty by this productID;
+        Long productId = product.getProductId();
 
-    @GetMapping("/payments")
-    public String getPaymentOptions(){
-        return restTemplate.getForObject("http://localhost:8091/payments/all", String.class);
-    }
+        System.out.print("\n\n\n"+product);
+        Integer pdtQty =  restTemplate.getForObject("http://localhost:8097/stock/check/"+productId, Integer.class);
 
-    @PostMapping("/add/{productId}")
-    public Order addToOrder(@PathVariable("productId") Long productId){
-        //Go to stock service and pick product by this productID;
-        //Add this product to Order
-        order.setOrderProducts(product);
-        order.setOrderAmount(product.getProductAmount());
-        return order;
+        Orders order = new Orders(product.getProductAmount());
 
+        order.setProducts(product);
+
+       return orderService.saveOrder(order);
     }
 
     @GetMapping("/all/{userId}")
     public List<Product> getOrderProducts(@PathVariable("userId") Long userId){
-        return order.getOrderProducts();
+        return null;
     }
 
 
