@@ -1,0 +1,28 @@
+git clone https://github.com/TechPrimers/spring-boot-lazy-init-example.git
+cd spring-boot-lazy-init-example/
+./mvnw clean install
+java -jar spring-boot-lazy-init-example-0.0.1-SNAPSHOT.jar 
+./mvnw com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/$GOOGLE_CLOUD_PROJECT/spring-boot-example:v1
+
+
+
+
+gcloud container clusters get-credentials ea-project-cluster-1 --zone us-central1-a (ea-project-cluseter-1 is name of your cluseter and zone is also found in UI)  DONOT SKIP THIS STEP
+
+gcloud config set project poetic-park-253317  (poetic-partk.. is project id it may be required if error occured if error is on prev step get credentials)
+
+kubectl get pods
+kubectl get services
+kubectl get deployments
+
+docker run -ti --rm -p 8080:8080 gcr.io/$GOOGLE_CLOUD_PROJECT/spring-boot-example:v1 (NOT required just testing docker image working or not)
+
+kubectl run spring-boot-example --image=gcr.io/$GOOGLE_CLOUD_PROJECT/spring-boot-example:v1 --port=8080
+
+kubectl expose deployment spring-boot-example1 --type=LoadBalancer  
+
+check kubectl get services (check for pending it may take few minutes)
+Use external Ip (currently may be pending) in browser to run application like 108.59.85.96:8080/api/home
+
+kubectl scale deployment spring-boot-example1 --replicas=3
+
