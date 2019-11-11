@@ -95,7 +95,7 @@ kubectl expose pod some-mysql --name some-mysql-3306 \
 
 ##Scale the instances:
 ```bash
-	kubectl scale deployment DatabaseName --replicas=nuberOfReplicas 
+	kubectl scale deployment DatabaseName --replicas=numberOfReplicas 
 ```
 
 
@@ -106,3 +106,5 @@ kubectl expose pod some-mysql --name some-mysql-3306 \
 ```
 
 ## Check the tables and data
+
+##Authors Wagobera Edgar Kedi and Sunena Gwachha
