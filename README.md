@@ -29,14 +29,14 @@ http://localhost:8085/api/signin
 		MySQl installation on Cloud shell
 
 
-##Install MySQl 5.x in Google Cloud Platform
+## Install MySQl 5.x in Google Cloud Platform
 
 ```bash
 gcloud docker -- pull launcher.gcr.io/google/mysql5
 
 ```
 
-##Start a MySQL instance
+## Start a MySQL instance
 
 ```bash
 Copy the following content to pod.yaml file
@@ -73,14 +73,14 @@ kubectl expose pod some-mysql --name some-mysql-3306 \
   
 ```
 
-##Build an executable JAR file for each microservices:
+## Build an executable JAR file for each microservices:
 
 ```bash
 	mvn clean install
 			
 ```
 
-##Dockerize the microservices:
+## Dockerize the microservices:
 
 ```bash
 	mvn com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/$$GOOGLE_CLOUD_PROJECT/DatabaseName:v1
@@ -93,13 +93,13 @@ kubectl expose pod some-mysql --name some-mysql-3306 \
 
 ```
 
-##Scale the instances:
+## Scale the instances:
 ```bash
 	kubectl scale deployment DatabaseName --replicas=numberOfReplicas 
 ```
 
 
-##Login to database:
+## Login to database:
 
 ```bash
 	kubectl exec -it DatabaseName-db-mysql -- mysql -uUSERNAME -pPASSWORD 
