@@ -10,7 +10,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
 @EnableWebSecurity
-@EnableDiscoveryClient
 public class AccountServiceApplication {
 	
 
