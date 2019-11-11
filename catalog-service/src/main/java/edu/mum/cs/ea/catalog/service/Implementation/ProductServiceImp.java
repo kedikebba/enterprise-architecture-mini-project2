@@ -31,7 +31,8 @@ public class ProductServiceImp implements ProductService {
     @Override
     public String getProducts() {
 
-        return restTemplate.getForObject("http://localhost:8097/stock/all/", String.class);
+        return restTemplate.getForObject("http://stock-service.default.svc.cluster.local:8097/stock/all/", String.class);
+        //return null;
     }
 
     @Override

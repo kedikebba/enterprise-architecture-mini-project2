@@ -42,6 +42,7 @@ public class OrderController {
 
     @GetMapping("/checkout")
     public String checkout(){
+
         return restTemplate.getForObject("http://localhost:8080/payments/all", String.class);
     }
     @GetMapping("/checkout/{option}")
@@ -50,6 +51,7 @@ public class OrderController {
     }
     @GetMapping("/shipping")
     public String shipping(){
+
         return restTemplate.getForObject("http://localhost:8096/ship", String.class);
     }
 
