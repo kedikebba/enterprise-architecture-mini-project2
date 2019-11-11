@@ -5,7 +5,7 @@ metadata:
   labels:
     app: catalogue-service
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: catalogue-service
@@ -26,6 +26,11 @@ spec:
                 configMapKeyRef:
                   name: catalogue-service-config
                   key: someKey1
+            - name: STOCK_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: catalogue-service-config
+                  key: stockService
             - name: NEXT_SERVICE
               valueFrom:
                 configMapKeyRef:

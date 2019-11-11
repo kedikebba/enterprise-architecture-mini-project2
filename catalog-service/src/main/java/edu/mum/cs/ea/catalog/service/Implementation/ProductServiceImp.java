@@ -15,14 +15,14 @@ import java.util.List;
 
 @Service
 public class ProductServiceImp implements ProductService {
-    @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
-        return restTemplateBuilder.build();
-    }
-
-
-    @Autowired
-    private RestTemplate restTemplate;
+//    @Bean
+//    public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
+//        return restTemplateBuilder.build();
+//    }
+//
+//
+//    @Autowired
+//    private RestTemplate restTemplate;
 
 
     @Autowired
@@ -31,8 +31,8 @@ public class ProductServiceImp implements ProductService {
     @Override
     public String getProducts() {
 
-        return restTemplate.getForObject("http://stock-service.default.svc.cluster.local:8097/stock/all/", String.class);
-        //return null;
+//        return restTemplate.getForObject("http://stock-service.default.svc.cluster.local:8097/stock/all/", String.class);
+        return null;
     }
 
     @Override
