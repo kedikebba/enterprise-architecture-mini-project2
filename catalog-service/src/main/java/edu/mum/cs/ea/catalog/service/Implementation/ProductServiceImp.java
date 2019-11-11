@@ -6,18 +6,32 @@ import edu.mum.cs.ea.catalog.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @Service
-public class ProductServiceImp implements ProductService, CommandLineRunner {
+public class ProductServiceImp implements ProductService {
+    @Bean
+    public RestTemplate restTemplate(RestTemplateBuilder restTemplateBuilder){
+        return restTemplateBuilder.build();
+    }
+
+
+    @Autowired
+    private RestTemplate restTemplate;
+
 
     @Autowired
     private ProductRepository productRepository;
+
     @Override
-    public List<Product> getProducts() {
-        return productRepository.findAll();
+    public String getProducts() {
+
+        return restTemplate.getForObject("http://localhost:8097/stock/all/", String.class);
     }
 
     @Override
@@ -31,15 +45,4 @@ public class ProductServiceImp implements ProductService, CommandLineRunner {
 		return productRepository.save(product);
 	}
 
-    @Override
-    public void run(String... args) throws Exception {
-//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-//        productRepository.save(new Product("iPhone10", "Apple", "Electronics"));
-
-    }
 }

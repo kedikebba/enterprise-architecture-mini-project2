@@ -27,30 +27,32 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
-    @GetMapping("/test")
-    public String getTestPage(){
-        return "This is Test!";
-    }
 
     @PostMapping("/add")
-    public Orders addToOrder(@RequestBody Product product){
+    public Orders addToOrder(@RequestBody String address, Product product){
         //Go to stock service and pick productQty by this productID;
         Long productId = product.getProductId();
 
-        System.out.print("\n\n\n"+product);
         Integer pdtQty =  restTemplate.getForObject("http://localhost:8097/stock/check/"+productId, Integer.class);
+            Orders order = new Orders(product.getProductAmount());
+            order.setProducts(product);
+            return orderService.saveOrder(order);
 
-        Orders order = new Orders(product.getProductAmount());
-
-        order.setProducts(product);
-
-       return orderService.saveOrder(order);
     }
 
-    @GetMapping("/all/{userId}")
-    public List<Product> getOrderProducts(@PathVariable("userId") Long userId){
-        return null;
+    @GetMapping("/checkout")
+    public String checkout(){
+        return restTemplate.getForObject("http://localhost:8080/payments/all", String.class);
     }
+    @GetMapping("/checkout/{option}")
+    public String checkoutoption(@PathVariable String option){
+        return restTemplate.getForObject("http://localhost:8080/payments/"+option, String.class);
+    }
+    @GetMapping("/shipping")
+    public String shipping(){
+        return restTemplate.getForObject("http://localhost:8096/ship", String.class);
+    }
+
 
 
 

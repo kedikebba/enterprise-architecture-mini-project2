@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/signup", "/signin").permitAll()
+		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/signup", "/signin", "/viewProducts").permitAll()
 				.antMatchers(HttpMethod.OPTIONS, "/**").permitAll().antMatchers("/api/load").hasAuthority("ADMIN")
 				.antMatchers("/viewauthorizedpage").hasAnyAuthority("USER","ADMIN")
 				.anyRequest().authenticated().and().exceptionHandling()
