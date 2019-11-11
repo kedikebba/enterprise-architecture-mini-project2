@@ -46,7 +46,7 @@ public class ProductController {
 
        StringBuffer sb = new StringBuffer();
 
-        final String uri = String.format("http://%s/"+"stock/all", stockService);
+        final String uri = String.format("http://%s/stock/all", stockService);
 
         String result="UNABLE TO CALL";
 
