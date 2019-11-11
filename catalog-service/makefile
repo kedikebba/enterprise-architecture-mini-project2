@@ -95,15 +95,11 @@ k8s-info:
 	kubectl get pods
 	echo "You can also check DB via:\n kubectl run -it --rm --image=mysql:5.6 --restart=Never mysql-client -- mysql -h catalogue-service-db -ppassword "
 
-
-
 # k8s-all-create: k8s-configmap-create k8s-secrets-create k8s-role-create k8s-deployment-create k8s-service-create
 # 	echo "Done"
 k8s-all-create: k8s-configmap-create k8s-secrets-create k8s-deployment-create
- 	echo "Done"
-k8s-all-delete: k8s-configmap-delete k8s-secrets-delete k8s-deployment-delete k8s-service-delete
-	echo "Done"
 
+k8s-all-delete: k8s-configmap-delete k8s-secrets-delete k8s-deployment-delete k8s-service-delete
 
 k8s-all-reset: k8s-all-delete k8s-all-create
 
