@@ -26,7 +26,7 @@ public class ProductController {
         return restTemplateBuilder.build();
     }
 
-    @Value("{STOCK_SERVICE:#{null}}")
+    @Value("${STOCK_SERVICE:#{null}}")
     private String stockService;
 
 
