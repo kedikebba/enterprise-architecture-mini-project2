@@ -5,7 +5,7 @@ metadata:
   labels:
     app: creditcard-service
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: creditcard-service
