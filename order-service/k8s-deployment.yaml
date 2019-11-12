@@ -39,17 +39,17 @@ spec:
             - name: STOCK_SERVICE
               valueFrom:
                 configMapKeyRef:
-                  name: shipping-service-config
+                  name: order-service-config
                   key: stockService
             - name: SHIPPING_SERVICE
               valueFrom:
                 configMapKeyRef:
-                  name: shipping-service-config
+                  name: order-service-config
                   key: shippingService
             - name: PAYMENT_SERVICE
               valueFrom:
                 configMapKeyRef:
-                  name: shipping-service-config
+                  name: order-service-config
                   key: paymentService
             #MYSQL
             - name: MYSQL_HOST
