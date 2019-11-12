@@ -36,6 +36,21 @@ spec:
                 secretKeyRef:
                   name: order-service-secrets
                   key: service-api-key
+            - name: STOCK_SERVICE
+                valueFrom:
+                  configMapKeyRef:
+                    name: shipping-service-config
+                    key: stockService
+            - name: SHIPPING_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: shipping-service-config
+                  key: shippingService
+            - name: PAYMENT_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: shipping-service-config
+                  key: paymentService
             #MYSQL
             - name: MYSQL_HOST
               value: order-service-db
