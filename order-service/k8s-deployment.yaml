@@ -37,10 +37,10 @@ spec:
                   name: order-service-secrets
                   key: service-api-key
             - name: STOCK_SERVICE
-                valueFrom:
-                  configMapKeyRef:
-                    name: shipping-service-config
-                    key: stockService
+              valueFrom:
+                configMapKeyRef:
+                  name: shipping-service-config
+                  key: stockService
             - name: SHIPPING_SERVICE
               valueFrom:
                 configMapKeyRef:
