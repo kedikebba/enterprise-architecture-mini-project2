@@ -31,6 +31,21 @@ spec:
                 configMapKeyRef:
                   name: shipping-service-config
                   key: nextService
+            - name: STOCK_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: shipping-service-config
+                  key: stockService
+            - name: SHIPPING_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: shipping-service-config
+                  key: shippingService
+            - name: PAYMENT_SERVICE
+              valueFrom:
+                configMapKeyRef:
+                  name: shipping-service-config
+                  key: paymentService
             - name: SERVICE_API_KEY
               valueFrom:
                 secretKeyRef:
