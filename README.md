@@ -93,7 +93,7 @@ Chose from :
 •	creditcard
 
 Whichever Option you choose, send another request to use that option. 
-`http://104.197.165.71/order/PAYMENT- OPTION` ie http://104.197.165.71/order/bank
+`http://104.197.165.71/order/PAYMENT- OPTION` ie http://104.197.165.71/order/checkout/bank
 
 Request goes to the Payment Service, the payment service will forward the request to the chosen option service to process the transaction.
 
