@@ -58,7 +58,7 @@ Open Postman:
 **BODY** 
 ```bash
 {
-    "email":"project@gmail.com",
+    "username":"project@gmail.com",
     "password":"user"
 }
 ```
